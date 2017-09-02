@@ -6,12 +6,15 @@ use \Psr\Http\Message\ResponseInterface as Response;
 if (PHP_SAPI === 'cli-server' && $_SERVER ['SCRIPT_FILENAME'] !== __FILE__) {
 	return false;
 }
-
+function debug($var){
+    echo '<pre>'; print_r($var);die;
+}
 require __DIR__ . '/vendor/autoload.php';
 
 session_start ();
 // Instantiate the app
 $settings = require __DIR__ . '/app/settings.php';
+require __DIR__ . '/vendor/phpoffice/phpexcel/Classes/PHPExcel/IOFactory.php';
 $app = new \Slim\App ( $settings );
 
 
@@ -43,7 +46,7 @@ $app->get('/questions', function ($request, $response) {
 		}	
 		$result['data']['questions'] = $arr_question;
 		return $response->withJson ( $result );
-	} catch (Exception $e) {
+	} catch (Exception $e) {		
 		$result['status'] = "error";
 		return $response->withJson ( $result );
 	}
