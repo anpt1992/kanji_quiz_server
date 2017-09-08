@@ -1,0 +1,18 @@
+{% extends 'base/backend.twig' %}
+
+{% block extra_stylesheets %}
+{% endblock %}
+
+{% block container %}    
+    <div class="box-body">        
+        <form action="{{ base_url() }}/questions/import" method="post" enctype="multipart/form-data"> 
+            <input type="file"  name="filepath" id="filepath"/>
+            <br>
+            <input type="submit" name="SubmitButton"/>
+        </form>
+    </div>          
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}   
+{% endblock %}
