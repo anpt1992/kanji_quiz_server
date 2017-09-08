@@ -1,0 +1,42 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="{{base_url()}}/images/logo_main.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{user.last_name}} {{user.first_name}}</p>
+          <small>{{user_role}}</small>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="{{base_url()}}/"><i class="fa fa-dashboard"></i> <span>{{ "DASHBOARD"|trans }}</span></a></li>   
+        <li><a href="{{base_url()}}/partner"><i class="fa fa-bank"></i> <span>{{ "PARTNER"|trans }}</span></a></li>   
+
+        <li><a href="{{base_url()}}/contact"><i class="fa fa-address-card"></i> <span>{{ "CONTACT"|trans }}</span></a></li>   
+
+        <li><a href="{{base_url()}}/task"><i class="fa fa-tasks"></i> <span>{{ "TASK"|trans }}</span></a></li>   
+
+        {% if user_role_id < 3 %}
+        <li><a href="{{base_url()}}/department"><i class="fa 	fa fa-id-badge"></i> <span>{{ "DEPARTMENT"|trans }}</span></a></li>
+
+        <li><a href="{{base_url()}}/project"><i class="fa fa-tags"></i> <span>{{ "PROJECTS"|trans }}</span></a></li>
+
+        <li><a href="{{base_url()}}/task/report"><i class="fa fa-bar-chart"></i> <span>{{ "TASK_REPORT"|trans }}</span></a></li>
+
+        <li><a href="{{base_url()}}/users"><i class="fa fa-users"></i> <span>{{ "USERS"|trans }}</span></a></li> 
+        {% endif %}
+        <li><a href="{{base_url()}}/support"><i class="fa fa fa-question-circle"></i> <span>{{ "SUPPORT"|trans }}</span></a></li> 
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
